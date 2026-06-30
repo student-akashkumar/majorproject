@@ -54,11 +54,18 @@ app.get("/listings/:id", async (req, res) => {
 });
 
 //Create Route
+
 app.post("/listings", async (req, res) => {
-  const newListing = new Listing(req.body.listing);
-  await newListing.save();
-  res.redirect("/listings");
+    console.log(req.body);
+    console.log(req.body.listing);
+
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+
+    res.redirect("/listings");
 });
+
+
 
 // Edit Route
 app.get("/listings/:id/edit", async (req, res) => {
